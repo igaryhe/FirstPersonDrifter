@@ -1,5 +1,6 @@
 ﻿// original by asteins
 // adapted by @torahhorse
+// modified by @igaryhe
 // http://wiki.unity3d.com/index.php/SmoothMouseLook
 
 // Instructions:

@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
     public void OnOptionsMenu()
     {
         OptionsMenuUI.SetActive(true);
-        gameObject.SetActive(false);
+        PauseMenuUI.SetActive(false);
     }
 
     public void OnReset()
