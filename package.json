@@ -6,7 +6,8 @@
   "unity": "2019.4",
   "unityRelease": "9f1",
   "dependencies": {
-    "com.unity.inputsystem": "1.0.0"
+    "com.unity.inputsystem": "1.0.0",
+    "com.unity.textmeshpro": "2.1.1"
   },
   "keywords": [
     "first person",

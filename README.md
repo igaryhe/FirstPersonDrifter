@@ -1,11 +1,11 @@
 # First Person Drifter
-Dead simple first person character controller written in C# for Unity3D.
+Dead simple first person character controller for Unity3D.
 
-Originally compiled by @torahhorse [http://torahhorse.com]
-benjamin.esposito@gmail.com and maintained by [Jack A
-Perkins](https://github.com/jackaperkins/first-person-drifter). This version is
-modified by Dan, substitute `Unity.Input` with `UnityEngine.InputSystem`, also
-made it a package which you could easily add through package manager
+Originally compiled by [@torahhorse](http://torahhorse.com) and maintained by
+[Jack A Perkins](https://github.com/jackaperkins/first-person-drifter). This
+version is modified by Dan, substitute `Unity.Input` with
+`UnityEngine.InputSystem`, also made it a package which you could easily add
+through package manager.
 
 ## Features
 First person drifter improves on Unity's default first person controller in a few ways:

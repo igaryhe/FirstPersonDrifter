@@ -14,9 +14,6 @@ GameObject:
   - component: {fileID: 8100000}
   - component: {fileID: 11400012}
   - component: {fileID: 11400008}
-  - component: {fileID: 11400006}
-  - component: {fileID: 11400002}
-  - component: {fileID: 11400000}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -130,49 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18eea0e8a9c4e4e8fb38abb37b53d409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f00446844a44ac5b197c666ff94339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoomFOV: 40
-  zoomSpeed: 9
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d62a43906f26b4695a310e5e31521461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bobbingAmount: 0.05
-  midpoint: 0.6
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7316427f6adfe4e42b100c26a3a53082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeInWhenSceneStarts: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeTime: 5
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,10 +141,9 @@ GameObject:
   - component: {fileID: 14300000}
   - component: {fileID: 11400014}
   - component: {fileID: 11400010}
-  - component: {fileID: 11400004}
-  - component: {fileID: 4529556068626252302}
+  - component: {fileID: 5192051936885187019}
   m_Layer: 0
-  m_Name: Player
+  m_Name: VanillaPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,8 +244,8 @@ MonoBehaviour:
   walkSpeed: 6
   runSpeed: 10
   enableRunning: 0
-  jumpSpeed: 4
-  gravity: 10
+  jumpSpeed: 8
+  gravity: 20
   slideWhenOverSlopeLimit: 0
   slideOnTaggedObjects: 0
   slideSpeed: 5
@@ -320,21 +273,7 @@ MonoBehaviour:
   minimumY: -85
   maximumY: 85
   framesOfSmoothing: 5
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02db86390867458abd13c03319bf57f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetBelowThisY: -100
-  fadeInOnReset: 1
---- !u!114 &4529556068626252302
+--- !u!114 &5192051936885187019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,24 +312,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400002}
-        m_MethodName: Movement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_ActionId: 7ec020dc-bea6-4a5a-a595-7f3f1f8636ce
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400008}
-        m_MethodName: OnPause
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -399,7 +327,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 2107f694de6514f70bd16ce5102284c0, type: 3}
+      - m_Target: {fileID: 6148059743113578609, guid: 2107f694de6514f70bd16ce5102284c0,
+          type: 3}
         m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
@@ -429,8 +358,9 @@ MonoBehaviour:
     m_ActionName: Player/New action
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400014}
-        m_MethodName: OnJump
+      - m_Target: {fileID: 2842889973838097691, guid: ed33080ac2fc1004aae20e5c1fdfbcd5,
+          type: 3}
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -469,18 +399,7 @@ MonoBehaviour:
     m_ActionId: 8a87b5a8-767a-4aea-9ef9-71c6907774e1
     m_ActionName: Player/New action
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400006}
-        m_MethodName: OnZoom
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: b4490e1f-3484-4106-93ed-210cf7b850e4
     m_ActionName: Player/Zoom[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
