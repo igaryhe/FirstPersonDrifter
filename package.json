@@ -1,5 +1,5 @@
 {
-  "name": "com.igaryhe.firstpersondrifter",
+  "name": "io.igaryhe.firstpersondrifter",
   "version": "0.1.0",
   "displayName": "First Person Drifter",
   "description": "dead simple first person character controller",
