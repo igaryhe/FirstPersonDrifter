@@ -675,10 +675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7700cd04c5748e5857c5f0ceee764b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenuUI: {fileID: 0}
+  PauseMenuUI: {fileID: 6148059743113578893, guid: 2107f694de6514f70bd16ce5102284c0,
+    type: 3}
   FoVSlider: {fileID: 7323647774428192526}
   SensitivitySlider: {fileID: 7323647774669380214}
-  InvertYToggle: {fileID: 0}
+  InvertYToggle: {fileID: 7323647775100202535}
 --- !u!1 &7323647774141448994
 GameObject:
   m_ObjectHideFlags: 0
