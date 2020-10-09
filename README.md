@@ -35,9 +35,9 @@ the `PlayerVanilla` prefab.
 If you want to allow the player to run, simply tick the `Enable Running` in the
 `First Person Drifter` component.
 
-If you want to use the pause menu, drag the "Menu" prefab into you scene, and
-expand `Player Input` -> `Events` -> `Player` and you should see a `Pause
-(CallbackContext)`. Drag the Menu in, and select `PauseMenu` -> `OnPause`
+If you want to use the pause menu, drag the "Menu" prefab into you scene. Make
+sure to create a Canvas in advance, and don't forget to convert the EventSystem
+into using the new Input Systum.
 
 *****************
 

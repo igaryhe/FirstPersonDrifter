@@ -313,23 +313,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 7ec020dc-bea6-4a5a-a595-7f3f1f8636ce
-    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/DualShock4GamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8937234255478143725, guid: daeb6dcb65f3eb74d925f3ec3aa3113a,
-          type: 3}
-        m_MethodName: OnPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1861a88f-a01e-422e-8104-84e2be0acdf1
-    m_ActionName: Player/Pause[/Keyboard/escape]
+      m_Calls: []
+    m_ActionId: a148d716-05f8-4c51-aa98-b007a23fd291
+    m_ActionName: Player/Pause[/Keyboard/escape,/DualShock4GamepadHID/select,/XInputControllerWindows/select]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400014}
@@ -344,7 +332,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: cb62261a-8685-496d-a568-64c555afee10
-    m_ActionName: Player/New action
+    m_ActionName: Player/Run[/Keyboard/shift,/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400014}
@@ -359,7 +347,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 05a3a4d3-2ca9-4546-b1f6-52f68ced6459
-    m_ActionName: Player/New action
+    m_ActionName: Player/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400010}
@@ -385,11 +373,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 8a87b5a8-767a-4aea-9ef9-71c6907774e1
-    m_ActionName: Player/New action
+    m_ActionName: Player/Look[/Mouse/delta,/DualShock4GamepadHID/rightStick,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: b4490e1f-3484-4106-93ed-210cf7b850e4
-    m_ActionName: Player/Zoom[/Mouse/rightButton]
+    m_ActionName: Player/Zoom[/Mouse/rightButton,/DualShock4GamepadHID/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: af0a61da-7ba0-4559-919c-b759d4a01643
+    m_ActionName: UI/Pause[/Keyboard/escape,/DualShock4GamepadHID/select,/XInputControllerWindows/select]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -19,10 +19,8 @@ public class HeadBob : MonoBehaviour
  
 	void Update ()
 	{ 
-	    float waveslice = 0.0f; 
-	    // float horizontal = Input.GetAxis("Horizontal"); 
-	    // float vertical = Input.GetAxis("Vertical"); 
-	    
+	    float waveslice = 0.0f;
+
 	    if (Mathf.Abs(horizontal) == 0f && Mathf.Abs(vertical) == 0f)
 	    { 
 	       timer = 0.0f; 
