@@ -399,7 +399,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11400000, guid: 2107f694de6514f70bd16ce5102284c0, type: 3}
         m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
