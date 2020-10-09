@@ -32,12 +32,12 @@ for you. hit play.  if you want the pause menu (accessed by pressing ESC) drop
 the `PauseMenu` prefab into the scene.  if you don't want any optional stuff, use
 the `PlayerVanilla` prefab.
 
-if you want to allow the player to run, simply tick the `Enable Running` in the
+If you want to allow the player to run, simply tick the `Enable Running` in the
 `First Person Drifter` component.
 
-If you're getting the error 'There are 2 Audio Listeners in the scene' that
-means you have another camera in the scene, probably the default one called Main
-Camera. delete that.
+If you want to use the pause menu, drag the "Menu" prefab into you scene, and
+expand `Player Input` -> `Events` -> `Player` and you should see a `Pause
+(CallbackContext)`. Drag the Menu in, and select `PauseMenu` -> `OnPause`
 
 *****************
 
