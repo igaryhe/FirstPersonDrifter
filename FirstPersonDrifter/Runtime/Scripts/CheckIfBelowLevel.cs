@@ -1,14 +1,15 @@
 ﻿// by @torahhorse
+// modified by @igaryhe
 
 // Instructions:
 // Place on player. OnBelowLevel will get called if the player ever falls below
 
 using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CheckIfBelowLevel : MonoBehaviour
 {
-	public float resetBelowThisY = -100f;
+	public float resetBelowThisY = -30f;
 	public bool fadeInOnReset = true;
 	
 	private Vector3 startingPosition;
@@ -32,22 +33,8 @@ public class CheckIfBelowLevel : MonoBehaviour
 	
 		// reset the player
 		transform.position = startingPosition;
-		
-		if( fadeInOnReset )
-		{
-			// see if we already have a "camera fade on start"
-			CameraFadeOnStart fade = GameObject.Find("Main Camera").GetComponent<CameraFadeOnStart>();
-			if( fade != null )
-			{
-				fade.Fade();
-			}
-			else
-			{
-				Debug.LogWarning("CheckIfBelowLevel couldn't find a CameraFadeOnStart on the main camera");
-			}
-		}
-		
+
 		// alternatively, you could just reload the current scene using this line:
-		//Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

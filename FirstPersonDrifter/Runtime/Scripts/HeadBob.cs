@@ -8,18 +8,18 @@ using UnityEngine.InputSystem;
 
 public class HeadBob : MonoBehaviour
 {	
-	private float bobbingSpeed = 0.25f; 
+	public float bobbingSpeed = 10f; 
 	public float bobbingAmount = 0.05f; 
 	public float  midpoint = 0.6f; 
 	
-	private float timer = 0.0f;
+	private float timer;
 
 	private float horizontal;
 	private float vertical;
- 
-	void Update ()
+
+	private void Update ()
 	{ 
-	    float waveslice = 0.0f;
+	    var waveslice = 0.0f;
 
 	    if (Mathf.Abs(horizontal) == 0f && Mathf.Abs(vertical) == 0f)
 	    { 
@@ -28,29 +28,22 @@ public class HeadBob : MonoBehaviour
 	    else
 	    { 
 	       waveslice = Mathf.Sin(timer); 
-	       timer = timer + bobbingSpeed; 
-	       if (timer > Mathf.PI * 2f)
-	       { 
-	          timer = timer - (Mathf.PI * 2f); 
-	       } 
-	    } 
+	       timer += bobbingSpeed * Time.deltaTime; 
+	       if (timer > Mathf.PI * 2f) timer -= Mathf.PI * 2f;
+	    }
+
+	    var localPos = transform.localPosition;
 	    if (waveslice != 0f)
-	    { 
-	       float translateChange = waveslice * bobbingAmount; 
-	       float totalAxes = Mathf.Abs(horizontal) + Mathf.Abs(vertical); 
-	       totalAxes = Mathf.Clamp (totalAxes, 0.0f, 1.0f); 
-	       translateChange = totalAxes * translateChange;
-	       
-	       Vector3 localPos = transform.localPosition;
-	       localPos.y = midpoint + translateChange * Time.timeScale; 
-	       transform.localPosition = localPos;
+	    {
+		    var translateChange = waveslice * bobbingAmount; 
+		    var totalAxes = Mathf.Abs(horizontal) + Mathf.Abs(vertical); 
+		    totalAxes = Mathf.Clamp (totalAxes, 0.0f, 1.0f); 
+		    translateChange = totalAxes * translateChange;
+		    
+		    localPos.y = midpoint + translateChange * Time.timeScale;
 	    } 
-	    else
-	    { 
-	    	Vector3 localPos = transform.localPosition;
-	    	localPos.y = midpoint; 
-	    	transform.localPosition = localPos;
-	    } 
+	    else localPos.y = midpoint;
+	    transform.localPosition = localPos;
 	}
 	
 	public void Movement(InputAction.CallbackContext ctx)

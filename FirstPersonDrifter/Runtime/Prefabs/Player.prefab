@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 11400008}
   - component: {fileID: 11400006}
   - component: {fileID: 11400002}
-  - component: {fileID: 11400000}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -156,23 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62a43906f26b4695a310e5e31521461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bobbingSpeed: 10
   bobbingAmount: 0.05
   midpoint: 0.6
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7316427f6adfe4e42b100c26a3a53082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeInWhenSceneStarts: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeTime: 5
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

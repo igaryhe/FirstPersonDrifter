@@ -15,13 +15,13 @@ public class CameraZoom : MonoBehaviour
 	private float baseFOV;
 
 	private bool zoom;
-	
-	void Start ()
+
+	private void Start ()
 	{
-		SetBaseFOV(GetComponent<Camera>().fieldOfView);
+		baseFOV = Camera.main.fieldOfView;
 	}
-	
-	void Update ()
+
+	private void Update ()
 	{
 		targetFOV = zoom ? zoomFOV : baseFOV;
 
@@ -30,12 +30,7 @@ public class CameraZoom : MonoBehaviour
 	
 	private void UpdateZoom()
 	{
-		GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
-	}
-	
-	public void SetBaseFOV(float fov)
-	{
-		baseFOV = fov;
+		Camera.main.fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
 	}
 
 	public void OnZoom(InputAction.CallbackContext ctx)

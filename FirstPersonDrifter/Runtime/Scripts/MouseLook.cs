@@ -16,7 +16,7 @@ public class MouseLook : MonoBehaviour
  
 	public enum RotationAxes { MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseX;
-	public bool invertY = false;
+	public bool invertY;
 	
 	public float sensitivityX = 10F;
 	public float sensitivityY = 9F;
@@ -27,14 +27,14 @@ public class MouseLook : MonoBehaviour
 	public float minimumY = -85F;
 	public float maximumY = 85F;
  
-	float rotationX = 0F;
-	float rotationY = 0F;
+	float rotationX;
+	float rotationY;
  
 	private List<float> rotArrayX = new List<float>();
-	float rotAverageX = 0F;	
+	float rotAverageX;	
  
 	private List<float> rotArrayY = new List<float>();
-	float rotAverageY = 0F;
+	float rotAverageY;
  
 	public float framesOfSmoothing = 5;
  
@@ -60,9 +60,7 @@ public class MouseLook : MonoBehaviour
 			rotAverageX = 0f;
 
 			rotationX += inputX * sensitivityX * Time.timeScale;
-			
-			// Debug.Log(Input.GetAxis("Mouse X") + " " + Input.GetAxis("Mouse Y"));
- 
+
 			rotArrayX.Add(rotationX);
  
 			if (rotArrayX.Count >= framesOfSmoothing)
