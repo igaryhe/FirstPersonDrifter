@@ -4,16 +4,20 @@ using UnityEngine.UI;
 public class OptionsMenu: MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    public Slider foVSlider;
-    public Slider sensitivitySlider;
-    public Toggle invertYToggle;
     
+    private Slider foVSlider;
+    private Slider sensitivitySlider;
+    private Toggle invertYToggle;
     private MouseLook player;
     private MouseLook cam;
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<MouseLook>();
+        var sliders = GetComponentsInChildren<Slider>(true);
+        foVSlider = sliders[0];
+        sensitivitySlider = sliders[1];
+        invertYToggle = GetComponentInChildren<Toggle>();
         cam = Camera.main.GetComponent<MouseLook>();
     }
 
@@ -31,7 +35,9 @@ public class OptionsMenu: MonoBehaviour
 
     public void SetFoV(float fov)
     {
-        Camera.main.fieldOfView = fov;
+        cam.GetComponent<Camera>().fieldOfView = fov;
+        if (!cam.GetComponent<CameraZoom>()) return;
+        cam.GetComponent<CameraZoom>().SetBaseFOV(fov);
     }
 
     public void SetInvertY(bool invert)

@@ -1,6 +1,8 @@
 ﻿// by @torahhorse
 // modified by @igaryhe
 
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,32 +12,43 @@ public class CameraZoom : MonoBehaviour
 {
 	public float zoomFOV = 30.0f;
 	public float zoomSpeed = 9f;
-	
-	private float targetFOV;
-	private float baseFOV;
 
-	private bool zoom;
-	private Camera camera;
+	private float baseFOV;
+	
+	private Camera cam;
 
 	private void Start ()
 	{
-		camera = Camera.main;
-		baseFOV = camera.fieldOfView;
+		cam = Camera.main;
+		baseFOV = cam.fieldOfView;
 	}
-
-	private void Update ()
+	private IEnumerator ZoomTo(float target)
 	{
-		targetFOV = zoom ? zoomFOV : baseFOV;
-		UpdateZoom();
-	}
-	
-	private void UpdateZoom()
-	{
-		camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
+		while (Math.Abs(cam.fieldOfView - target) > 0.0001)
+		{
+			cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, target, zoomSpeed * Time.deltaTime);
+			yield return null;
+		}
 	}
 
 	public void OnZoom(InputAction.CallbackContext ctx)
 	{
-		zoom = ctx.performed;
+		if (ctx.performed)
+		{
+			StopAllCoroutines();
+			StartCoroutine(ZoomTo(zoomFOV));
+		}
+
+		if (ctx.canceled)
+		{
+			StopAllCoroutines();
+			StartCoroutine(ZoomTo(baseFOV));
+		}
+	}
+
+	public void SetBaseFOV(float fov)
+	{
+		StopAllCoroutines();
+		baseFOV = fov;
 	}
 }

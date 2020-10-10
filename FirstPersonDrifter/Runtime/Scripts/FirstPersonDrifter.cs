@@ -104,7 +104,7 @@ public class FirstPersonDrifter : MonoBehaviour
             }
 
             // If sliding (and it's allowed), or if we're on an object tagged "Slide", get a vector pointing down the slope we're on
-            if ((sliding && slideWhenOverSlopeLimit) || (slideOnTaggedObjects && hit.collider.CompareTag("Slide")))
+            if (sliding && slideWhenOverSlopeLimit || slideOnTaggedObjects && hit.collider.CompareTag("Slide"))
             {
                 var hitNormal = hit.normal;
                 moveDirection = new Vector3(hitNormal.x, -hitNormal.y, hitNormal.z);
@@ -121,8 +121,7 @@ public class FirstPersonDrifter : MonoBehaviour
             }
 
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
-            if (!isJumping)
-                jumpTimer++;
+            if (!isJumping) jumpTimer++;
             else if (jumpTimer >= antiBunnyHopFactor)
             {
                 moveDirection.y = jumpSpeed;

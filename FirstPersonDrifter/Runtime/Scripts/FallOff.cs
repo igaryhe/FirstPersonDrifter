@@ -7,7 +7,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckIfBelowLevel : MonoBehaviour
+public class FallOff : MonoBehaviour
 {
 	public float resetBelowThisY = -30f;
 	
@@ -20,20 +20,8 @@ public class CheckIfBelowLevel : MonoBehaviour
 
 	private void Update ()
 	{
-		if( transform.position.y < resetBelowThisY )
-		{
-			OnBelowLevel();
-		}
-	}
-	
-	private void OnBelowLevel()
-	{
-		// Debug.Log("Player fell below level");
-	
-		// reset the player
+		if (transform.position.y >= resetBelowThisY) return;
 		transform.position = startingPosition;
-
-		// alternatively, you could just reload the current scene using this line:
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

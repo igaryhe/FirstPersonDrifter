@@ -109,8 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axes: 2
   invertY: 0
-  sensitivityX: 8
-  sensitivityY: 8
+  sensitivity: 10
   minimumX: -360
   maximumX: 360
   minimumY: -85
@@ -285,8 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axes: 1
   invertY: 0
-  sensitivityX: 8
-  sensitivityY: 8
+  sensitivity: 10
   minimumX: -360
   maximumX: 360
   minimumY: -85
@@ -304,8 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02db86390867458abd13c03319bf57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetBelowThisY: -100
-  fadeInOnReset: 1
+  resetBelowThisY: -30
 --- !u!114 &4529556068626252302
 MonoBehaviour:
   m_ObjectHideFlags: 0
