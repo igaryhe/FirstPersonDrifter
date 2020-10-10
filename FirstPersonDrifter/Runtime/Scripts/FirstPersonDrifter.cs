@@ -38,7 +38,7 @@ public class FirstPersonDrifter : MonoBehaviour
     public int antiBunnyHopFactor = 1;
 
     private Vector3 moveDirection = Vector3.zero;
-    private bool grounded = false;
+    private bool grounded;
     private CharacterController controller;
     private Transform myTransform;
     private float speed;
@@ -48,7 +48,7 @@ public class FirstPersonDrifter : MonoBehaviour
     private float slideLimit;
     private float rayDistance;
     private Vector3 contactPoint;
-    private bool playerControl = false;
+    private bool playerControl;
     private int jumpTimer;
 
     private float inputX;
@@ -64,6 +64,9 @@ public class FirstPersonDrifter : MonoBehaviour
         rayDistance = controller.height * .5f + controller.radius;
         slideLimit = controller.slopeLimit - .1f;
         jumpTimer = antiBunnyHopFactor;
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void FixedUpdate()

@@ -15,22 +15,23 @@ public class CameraZoom : MonoBehaviour
 	private float baseFOV;
 
 	private bool zoom;
+	private Camera camera;
 
 	private void Start ()
 	{
-		baseFOV = Camera.main.fieldOfView;
+		camera = Camera.main;
+		baseFOV = camera.fieldOfView;
 	}
 
 	private void Update ()
 	{
 		targetFOV = zoom ? zoomFOV : baseFOV;
-
 		UpdateZoom();
 	}
 	
 	private void UpdateZoom()
 	{
-		Camera.main.fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
+		camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
 	}
 
 	public void OnZoom(InputAction.CallbackContext ctx)

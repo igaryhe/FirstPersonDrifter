@@ -25,8 +25,8 @@ public class OptionsMenu: MonoBehaviour
 
     public void SetSensitivity(float sensitivity)
     {
-        player.SetSensitivity(sensitivity);
-        cam.SetSensitivity(sensitivity);
+        player.sensitivity = sensitivity;
+        cam.sensitivity = sensitivity;
     }
 
     public void SetFoV(float fov)

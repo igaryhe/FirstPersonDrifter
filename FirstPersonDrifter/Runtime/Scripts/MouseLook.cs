@@ -18,23 +18,18 @@ public class MouseLook : MonoBehaviour
 	public RotationAxes axes = RotationAxes.MouseX;
 	public bool invertY;
 	
-	public float sensitivityX = 10F;
-	public float sensitivityY = 9F;
- 
+	public float sensitivity = 10F;
+
 	public float minimumX = -360F;
 	public float maximumX = 360F;
  
 	public float minimumY = -85F;
 	public float maximumY = 85F;
- 
-	float rotationX;
-	float rotationY;
- 
-	private List<float> rotArrayX = new List<float>();
-	float rotAverageX;	
- 
-	private List<float> rotArrayY = new List<float>();
-	float rotAverageY;
+	
+	private float rotation;
+
+	private List<float> rotArray = new List<float>();
+	private float rotAverage;
  
 	public float framesOfSmoothing = 5;
  
@@ -45,83 +40,41 @@ public class MouseLook : MonoBehaviour
 
 	private void Start ()
 	{			
-		if (GetComponent<Rigidbody>())
-		{
-			GetComponent<Rigidbody>().freezeRotation = true;
-		}
-		
+		if (GetComponent<Rigidbody>()) GetComponent<Rigidbody>().freezeRotation = true;
 		originalRotation = transform.localRotation;
 	}
 
-	private void Update ()
+	private void Update()
 	{
-		if (axes == RotationAxes.MouseX)
-		{			
-			rotAverageX = 0f;
-
-			rotationX += inputX * sensitivityX * Time.timeScale;
-
-			rotArrayX.Add(rotationX);
- 
-			if (rotArrayX.Count >= framesOfSmoothing)
-			{
-				rotArrayX.RemoveAt(0);
-			}
-			foreach (var t in rotArrayX)
-			{
-				rotAverageX += t;
-			}
-			rotAverageX /= rotArrayX.Count;
-			rotAverageX = ClampAngle(rotAverageX, minimumX, maximumX);
-			
-			transform.localRotation = originalRotation * Quaternion.AngleAxis (rotAverageX, Vector3.up);			
-		}
+		rotAverage = 0f;
+		if (axes == RotationAxes.MouseX) rotation += inputX * sensitivity * Time.timeScale;
 		else
-		{			
-			rotAverageY = 0f;
- 
- 			var invertFlag = 1f;
- 			if( invertY )
- 			{
- 				invertFlag = -1f;
- 			}
-
-			rotationY += inputY * sensitivityY * invertFlag * Time.timeScale;
-			
-			rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
- 	
-			rotArrayY.Add(rotationY);
- 
-			if (rotArrayY.Count >= framesOfSmoothing)
-			{
-				rotArrayY.RemoveAt(0);
-			}
-			foreach (var t in rotArrayY)
-			{
-				rotAverageY += t;
-			}
-			rotAverageY /= rotArrayY.Count;
-			
-			transform.localRotation = originalRotation * Quaternion.AngleAxis (rotAverageY, Vector3.left);
+		{
+			var invertFlag = 1f;
+			if (invertY) invertFlag = -1f;
+			rotation += inputY * sensitivity * invertFlag * Time.timeScale;
+			rotation = Mathf.Clamp(rotation, minimumY, maximumY);
 		}
-	}
-	
-	public void SetSensitivity(float s)
-	{
-		sensitivityX = s;
-		sensitivityY = s;
+		
+		rotArray.Add(rotation);
+		if (rotArray.Count >= framesOfSmoothing) rotArray.RemoveAt(0);
+		foreach (var t in rotArray) rotAverage += t;
+		rotAverage /= rotArray.Count;
+		
+		if (axes == RotationAxes.MouseX)
+		{
+			rotAverage = ClampAngle(rotAverage, minimumX, maximumX);
+			transform.localRotation = originalRotation * Quaternion.AngleAxis (rotAverage, Vector3.up);			
+		}
+		else transform.localRotation = originalRotation * Quaternion.AngleAxis (rotAverage, Vector3.left);
 	}
 
 	private static float ClampAngle (float angle, float min, float max)
 	{
 		angle %= 360;
 		if (!(angle >= -360F) || !(angle <= 360F)) return Mathf.Clamp(angle, min, max);
-		if (angle < -360F) {
-			angle += 360F;
-		}
-		if (angle > 360F) {
-			angle -= 360F;
-		}
+		if (angle < -360F) angle += 360F;
+		if (angle > 360F) angle -= 360F;
 		return Mathf.Clamp (angle, min, max);
 	}
 

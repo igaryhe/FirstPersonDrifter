@@ -4,30 +4,27 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused;
-
-    public GameObject PauseMenuUI;
-
-    public GameObject OptionsMenuUI;
+    public GameObject pauseMenuUI;
+    public GameObject optionsMenuUI;
+    
+    private static bool _gameIsPaused;
 
     private void Resume()
     {
-        Debug.Log("Resumed");
-        PauseMenuUI.SetActive(false);
-        OptionsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(false);
+        optionsMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        _gameIsPaused = false;
         LockCursor(true);
     }
 
     private void Pause()
     {
-        if (!GameIsPaused)
+        if (!_gameIsPaused)
         {
-            Debug.Log("Paused");
-            PauseMenuUI.SetActive(true);
+            pauseMenuUI.SetActive(true);
             Time.timeScale = 0f;
-            GameIsPaused = true;
+            _gameIsPaused = true;
             LockCursor(false);
         } else Resume();
     }
@@ -44,8 +41,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OnOptionsMenu()
     {
-        OptionsMenuUI.SetActive(true);
-        PauseMenuUI.SetActive(false);
+        optionsMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
     }
 
     public void OnReset()
@@ -58,8 +55,8 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
-    public void LockCursor(bool lockCursor)
+
+    private void LockCursor(bool lockCursor)
     {
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;

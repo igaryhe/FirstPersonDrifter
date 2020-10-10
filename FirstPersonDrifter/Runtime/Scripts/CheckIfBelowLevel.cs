@@ -10,16 +10,15 @@ using UnityEngine.SceneManagement;
 public class CheckIfBelowLevel : MonoBehaviour
 {
 	public float resetBelowThisY = -30f;
-	public bool fadeInOnReset = true;
 	
 	private Vector3 startingPosition;
-	
-	void Awake()
+
+	private void Awake()
 	{
 		startingPosition = transform.position;
 	}
-	
-	void Update ()
+
+	private void Update ()
 	{
 		if( transform.position.y < resetBelowThisY )
 		{
@@ -29,7 +28,7 @@ public class CheckIfBelowLevel : MonoBehaviour
 	
 	private void OnBelowLevel()
 	{
-		Debug.Log("Player fell below level");
+		// Debug.Log("Player fell below level");
 	
 		// reset the player
 		transform.position = startingPosition;
