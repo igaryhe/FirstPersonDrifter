@@ -46,7 +46,7 @@ public class HeadBob : MonoBehaviour
 	    transform.localPosition = localPos;
 	}
 	
-	public void Movement(InputAction.CallbackContext ctx)
+	public void OnMove(InputAction.CallbackContext ctx)
 	{
 		var movement = ctx.ReadValue<Vector2>();
 		horizontal = movement.x;

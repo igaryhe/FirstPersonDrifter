@@ -107,8 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axes: 2
   invertY: 0
-  sensitivityX: 8
-  sensitivityY: 8
+  sensitivity: 10
   minimumX: -360
   maximumX: 360
   minimumY: -85
@@ -253,8 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axes: 1
   invertY: 0
-  sensitivityX: 8
-  sensitivityY: 8
+  sensitivity: 10
   minimumX: -360
   maximumX: 360
   minimumY: -85
