@@ -1,13 +1,14 @@
 {
   "name": "io.igaryhe.firstpersondrifter",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "displayName": "First Person Drifter",
   "description": "dead simple first person character controller",
   "unity": "2019.4",
   "unityRelease": "9f1",
   "dependencies": {
     "com.unity.inputsystem": "1.0.0",
-    "com.unity.textmeshpro": "2.1.1"
+    "com.unity.textmeshpro": "2.1.1",
+    "com.unity.ugui": "1.0.0"
   },
   "keywords": [
     "first person",
