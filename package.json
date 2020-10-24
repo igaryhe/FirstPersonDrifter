@@ -1,6 +1,6 @@
 {
   "name": "io.igaryhe.firstpersondrifter",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "displayName": "First Person Drifter",
   "description": "Dead simple first person character controller",
   "unity": "2019.4",
