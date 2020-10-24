@@ -19,7 +19,7 @@ public class CameraZoom : MonoBehaviour
 
 	private void Start ()
 	{
-		cam = Camera.main;
+		cam = GetComponent<Camera>();
 		baseFOV = cam.fieldOfView;
 	}
 	private IEnumerator ZoomTo(float target)

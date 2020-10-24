@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         _gameIsPaused = false;
         LockCursor(true);
+        AudioListener.pause = false;
     }
 
     private void Pause()
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0f;
             _gameIsPaused = true;
             LockCursor(false);
+            AudioListener.pause = true;
         } else Resume();
     }
 

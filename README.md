@@ -2,28 +2,29 @@
 Dead simple first person character controller for Unity3D.
 
 Originally compiled by [@torahhorse](http://torahhorse.com) and maintained by
-[Jack A Perkins](https://github.com/jackaperkins/first-person-drifter). This
-version substitutes `Unity.Input` with `UnityEngine.InputSystem`, also made it
+[@jackaperkins](https://github.com/jackaperkins/first-person-drifter). This
+version substitutes `UnityEngine.Input` with `UnityEngine.InputSystem`, also made it
 compatible with package manager.
 
 ## Features
 First person drifter improves on Unity's default first person controller in a few ways:
 
-- smooths mouse input
-- adds optional run mode, air control, sliding on slopes
-- adds head bob to camera
-- adds mouse lock (and unlock with ESC)
+- Smooths mouse input
+- Adds optional run mode, air control, sliding on slopes
+- Adds head bob to camera
+- Adds mouse lock (and unlock with ESC)
 
 It also comes with some optional stuffs:
 
-- camera fade in
-- right click zoom (good for looking at art and shit)
-- script for resetting player if they fall below a certain height
-- pause menu that handles:
-    + quit game
-    + field of view
-    + sensitivity
-    + invert mouse y axis
+- Camera fade in
+- Right click zoom (good for looking at art and shit)
+- Script for resetting player if they fall below a certain height
+- Footstep sound (built-in sounds made by [@kirozwj](https://github.com/kirozwj))
+- Pause menu that handles:
+    + Quit game
+    + Field of view
+    + Sensitivity
+    + Invert mouse y axis
     
 This package also has controller support built-in.
 
@@ -34,6 +35,6 @@ This package also has controller support built-in.
 the `First Person Drifter` component.
 - If you want to use the pause menu, drag the `Menu` prefab into you scene. Make
 sure to create a `Canvas` in advance, and convert the `EventSystem` into using
-the new Input Systum.
+the new Input System.
 - Disable the `FadeIn` in `Menu` if you don't want the fade in animation at the
 beginning.
